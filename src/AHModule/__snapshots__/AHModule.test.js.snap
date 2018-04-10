@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AHModule renders correctly 1`] = `
+<div
+  className="sc-bwzfXH iYyNYj"
+  onClick={undefined}
+  style={Object {}}
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "opacity": 1,
+        "transition": ".7s opacity ease-in",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`AHModule should handle render method with error 1`] = `
+<div
+  className="sc-bwzfXH ladbvR"
+  onClick={undefined}
+  style={Object {}}
+>
+  <img
+    alt="loading gif"
+    src="loading.gif"
+    style={
+      Object {
+        "alignSelf": "center",
+        "left": "50%",
+        "marginLeft": -20,
+        "marginTop": -20,
+        "position": "absolute",
+        "top": "50%",
+      }
+    }
+    width={40}
+  />
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "opacity": 0,
+        "transition": ".7s opacity ease-in",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "column",
+          "height": 300,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        Ett fel inträffade.
+      </p>
+      <p
+        style={
+          Object {
+            "margin": 0,
+            "marginBottom": 20,
+          }
+        }
+      >
+        Kontrollera internetanslutning.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AHModule should handle render method with loading false 1`] = `
+<div
+  className="sc-bwzfXH iYyNYj"
+  onClick={undefined}
+  style={Object {}}
+>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "opacity": 1,
+        "transition": ".7s opacity ease-in",
+      }
+    }
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`AHModule should handle render method with loading true 1`] = `
+<div
+  className="sc-bwzfXH ladbvR"
+  onClick={undefined}
+  style={Object {}}
+>
+  <img
+    alt="loading gif"
+    src="loading.gif"
+    style={
+      Object {
+        "alignSelf": "center",
+        "left": "50%",
+        "marginLeft": -20,
+        "marginTop": -20,
+        "position": "absolute",
+        "top": "50%",
+      }
+    }
+    width={40}
+  />
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "opacity": 0,
+        "transition": ".7s opacity ease-in",
+      }
+    }
+  />
+</div>
+`;

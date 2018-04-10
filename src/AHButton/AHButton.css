@@ -1,0 +1,41 @@
+@media print {
+    :local(.button) {
+        display: none !important;
+    }
+}
+
+:local(.button) {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: #000;
+    letter-spacing: 0.15em;
+    margin: 5px 5%;
+    padding: 1.2em;
+    text-align: center;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    user-select: none;
+    box-shadow: 0 0 0px 0 rgba(0, 0, 0, .008);
+    font-weight: 400;
+    border-radius: 0px;
+}
+
+:local(.button:hover) {
+    box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
+    opacity: 0.7;
+}
+
+:local(.buttonLabel) {
+    cursor: pointer;
+    user-select: none;
+}
+
+:local(.disabled) {
+    opacity: 0.7;
+}
+
+.loading {}

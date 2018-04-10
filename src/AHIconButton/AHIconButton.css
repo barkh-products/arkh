@@ -1,0 +1,42 @@
+:local(.button) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgba(200, 200, 200, 0.4);
+  transition: opacity 0.2s;
+  z-index: 1;
+  min-width: 0;
+  flex-grow: 1;
+  flex-basis: auto;
+}
+
+:local(.button:hover){
+  
+  opacity: 0.8;
+}
+
+
+:local(.wrapper) {
+  flex-grow: 1;
+  flex-basis: auto;
+}
+:local(.icon) { 
+  min-width: 40px;
+  min-height: 40px;
+}
+:local(.label) {
+  margin-top: 10px;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  word-break: break-all;
+  font-size: 12px;
+  font-weight: 300;
+  justify-content: center;
+}

@@ -1,0 +1,27 @@
+:local(.buttonBar){
+  margin: 20px 0 20px 0;
+}
+:local(.buttonBarRow){
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  justify-content: space-around;
+  align-items: center;
+  height:100px;
+}
+
+:local(.buttonBarColumn){
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: space-around;
+}
+
+:local(.iconItem){
+  flex-direction: column;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  max-width: 100%;
+  flex: 1 0 0px;
+}

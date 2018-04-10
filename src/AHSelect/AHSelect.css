@@ -1,0 +1,20 @@
+:local(.select) {
+  text-indent: 1em;
+  -webkit-appearance: none;
+  background-size: 13px 13px;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: #eeeeee;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  transition: 0.2s;
+  font-size: 16px;
+  margin: 10px 5%;
+  padding: 1.2em;
+  cursor: pointer;
+}
+
+:local(.select:hover) {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AHButton renders correctly 1`] = `
+<div
+  className="undefined  "
+  onClick={[Function]}
+  style={
+    Object {
+      "background": "#EEEEEE",
+      "color": "black",
+    }
+  }
+>
+  <div
+    className="sc-bdVaJa dqIiLf"
+    onClick={[Function]}
+  >
+    <label
+      className={undefined}
+    />
+  </div>
+</div>
+`;
+
+exports[`AHButton should handle disabled 1`] = `
+<div
+  className="undefined undefined "
+  onClick={[Function]}
+  style={
+    Object {
+      "background": "#EEEEEE",
+      "color": "black",
+    }
+  }
+>
+  <div
+    className="sc-bdVaJa dqIiLf"
+    onClick={[Function]}
+  >
+    <label
+      className={undefined}
+    />
+  </div>
+</div>
+`;
+
+exports[`AHButton should render children 1`] = `
+<div
+  className="undefined  "
+  onClick={[Function]}
+  style={
+    Object {
+      "background": "#EEEEEE",
+      "color": "black",
+    }
+  }
+>
+  <div
+    className="sc-bdVaJa dqIiLf"
+    onClick={[Function]}
+  >
+    <label
+      className={undefined}
+    >
+      <div />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`AHButton should render loading 1`] = `
+<div
+  className="undefined  undefined"
+  onClick={[Function]}
+  style={
+    Object {
+      "background": "#EEEEEE",
+      "color": "black",
+    }
+  }
+>
+  <div
+    className="sc-bdVaJa dqIiLf"
+    onClick={[Function]}
+  >
+    <label
+      className={undefined}
+    >
+      <i
+        className="fa fa-spinner fa-spin fa-1x fa-fw"
+      />
+    </label>
+  </div>
+</div>
+`;

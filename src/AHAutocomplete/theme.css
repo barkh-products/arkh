@@ -1,0 +1,89 @@
+:local(.container) {
+  position: relative;
+  flex: 1 0 auto;
+  display: flex;
+}
+
+:local(.input:hover) {
+  background-color: #f6f6f6;
+  outline: none;
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
+}
+:local(.input::placeholder) {
+  font-style: bold;
+  color: #bbb;
+}
+:local(.input::-ms-clear) {
+  display: none;
+}
+
+:local(.input) {
+  flex: 1 1 auto;
+  color: #606060;
+  padding: 0px;
+  text-indent: 1em;
+  font-size: 13px;
+  height: 30px;
+  border: none;
+  background: #eeeeee;
+  -webkit-appearance: none;
+  transition: 0.3s;
+  outline: none;
+  margin: 10px;
+  margin-right:0px;
+  padding: 10px;
+  z-index: 3;
+}
+
+:local(.containerOpen) :local(.input) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+:local(.suggestionsContainer) {
+  display: none;
+}
+
+:local(.containerOpen) :local(.suggestionsContainer) {
+  box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
+  display: block;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  right: 0px;
+  max-height: 250px;
+  overflow-y: auto;
+  background-color: #fff;
+  font-weight: 300;
+  font-size: 13px;
+  z-index: 2;
+}
+
+:local(.suggestionsList) {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+:local(.suggestion) {
+  cursor: pointer;
+  padding: 15px 15px;
+}
+
+:local(.suggestion:nth-child(odd)) {
+  background: #fafafa;
+}
+
+:local(.suggestionFocused) {
+  background-color: #0c7eaf;
+  color: #fff;
+}
+
+:local(.suggestionContent) {
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+:local(.suggestionHighlighted.suggestionHighlighted) {
+  background: #f0f0f0;
+}

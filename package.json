@@ -1,0 +1,40 @@
+{
+    "name": "arkh",
+    "version": "0.0.1",
+    "description": "The fabric of businesses",
+    "main": "./dist/src/index.js",
+    "scripts": {
+        "start": "./node_modules/.bin/parcel src/docs/index.html",
+        "build": "./node_modules/.bin/webpack --mode=production",
+        "build:docs": "./node_modules/.bin/parcel build src/docs/index.js -d dist/docs/"
+    },
+    "author": "Barkh",
+    "license": "MIT",
+    "dependencies": {
+        "moment": "^2.22.0",
+        "react": "^16.2.0",
+        "react-autosuggest-ie11-compatible": "^9.3.1",
+        "react-dom": "^16.2.0",
+        "react-select": "^1.2.1",
+        "react-tooltip": "^3.4.2",
+        "recompose": "^0.26.0",
+        "styled-components": "^3.2.5"
+    },
+    "peerDependencies": {
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.0.0-beta.42",
+        "babel-loader": "^8.0.0-beta",
+        "babel-preset-barkh-react": "1.0.0",
+        "css-loader": "^0.28.11",
+        "file-loader": "^1.1.11",
+        "parcel-bundler": "^1.6.2",
+        "react-styleguidist": "^7.0.5",
+        "style-loader": "^0.20.3",
+        "webpack": "^4.1.1",
+        "webpack-cli": "^2.0.12",
+        "webpack-node-externals": "^1.6.0"
+    }
+}
