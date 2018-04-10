@@ -27,22 +27,34 @@ const Shake = styled.div`
     cubic-bezier(0.36, 0.07, 0.19, 0.97);
 `;
 
-export const AHShakeableClickArea = withState("isShaking", "setIsShaking")(
-  ({ isShaking, shouldShake, setIsShaking, onClick, ...props }) => (
-    <Shake
-      {...props}
-      isShaking={isShaking}
-      onClick={function(e) {
-        if (shouldShake) {
-          setIsShaking(true);
-          setTimeout(() => {
-            setIsShaking(false);
-          }, 600);
-        }
-        if (onClick) {
-          onClick(e);
-        }
-      }}
-    />
-  )
-);
+export class AHShakeableClickArea extends React.Component{
+  state = {
+    isShaking: false
+  }
+
+  componentWillUnmount(){
+    clearTimeout(this.timer);
+  }
+
+  render() {
+
+    const { shouldShake, onClick, ...rest } = this.props;
+    return <Shake
+    {...rest}
+    isShaking={this.state.isShaking}
+    onClick={(e) => {
+      if (shouldShake) {
+        this.setState({isShaking: true});
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+          this.setState({isShaking: false});
+        }, 600);
+      }
+      if (onClick) {
+        onClick(e);
+      }
+    }}
+  />
+  }
+}
+

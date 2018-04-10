@@ -1,30 +1,30 @@
 ### Normal Button
 ```js
-<AHButtonUnthemed>A Regular Button</AHButtonUnthemed>
-<AHButtonUnthemed loading={true}>Push me</AHButtonUnthemed>
+<AHButton>A Regular Button</AHButton>
+<AHButton loading={true}>Push me</AHButton>
 ```
 ### Negative Button
 ```js
-<AHButtonUnthemed type="NEGATIVE">Push me</AHButtonUnthemed>
+<AHButton type="NEGATIVE">Push me</AHButton>
 
 ```
 
 ### Positive Button
 ```js
-<AHButtonUnthemed type="POSITIVE">Push me</AHButtonUnthemed>
+<AHButton type="POSITIVE">Push me</AHButton>
 ```
 
 ### Important Button
 ```js
-<AHButtonUnthemed type="IMPORTANT">Push me</AHButtonUnthemed>
+<AHButton type="IMPORTANT">Push me</AHButton>
 ```
 
 
 ### Disabled Buttons
 
 ```js
-<AHButtonUnthemed>Push me</AHButtonUnthemed>
-<AHButtonUnthemed type="NEGATIVE" disabled>Push me</AHButtonUnthemed>
-<AHButtonUnthemed type="POSITIVE" disabled>Push me</AHButtonUnthemed>
-<AHButtonUnthemed type="IMPORTANT" disabled>Push me</AHButtonUnthemed>
+<AHButton>Push me</AHButton>
+<AHButton type="NEGATIVE" disabled>Push me</AHButton>
+<AHButton type="POSITIVE" disabled>Push me</AHButton>
+<AHButton type="IMPORTANT" disabled>Push me</AHButton>
 ```

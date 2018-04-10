@@ -28,6 +28,7 @@ const typeStyles = (type: AHButtonTypes, theme: AHThemeType) =>
   }[type]);
 
 class AHButtonUnthemed extends PureComponent {
+  
   props: {
     children?: Children,
     type: AHButtonTypes,
@@ -42,6 +43,8 @@ class AHButtonUnthemed extends PureComponent {
     type: "NORMAL",
     onClick: () => {}
   };
+
+  displayName = "AHButton";
 
   renderLoading = () => <i className="fa fa-spinner fa-spin fa-1x fa-fw" />;
 
@@ -76,3 +79,4 @@ class AHButtonUnthemed extends PureComponent {
 }
 
 export const AHButton = withTheme(AHButtonUnthemed);
+
