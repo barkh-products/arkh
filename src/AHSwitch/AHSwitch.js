@@ -1,6 +1,6 @@
 import React from "react";
 import { withTheme, AHThemeType } from "../AHTheme/AHTheme";
-
+import { toClass } from "recompose";
 import styled from "styled-components";
 
 
@@ -25,21 +25,36 @@ const Container = styled.div`
 
 export type AHSwitchType = "NORMAL" | "COLLAPSED";
 
-export const AHSwitch = withTheme(
-  ({
-    type,
-    style,
-    labels,
-    activeIndex,
-    onActiveIndexChange,
-    theme,
-    Component,
-    componentProps
-  }: {
-    theme: AHThemeType,
-    type: AHSwitchType
-  }) =>
-    type === "COLLAPSED" ? (
+
+type Props = {
+
+    type: AHSwitchType;
+    labels: string[];
+    activeIndex: number;
+    onActiveIndexChange: (number) => void;
+    theme:AHThemeType;
+    Component: React$ReactElement<any>;
+    componentProps: any;
+}
+ class AHSwitchUnthemede extends React.Component {
+
+  displayName = "AHSwitch";
+
+  props: Props;
+
+  render(){
+    const {
+      type,
+      style,
+      labels,
+      activeIndex,
+      onActiveIndexChange,
+      theme,
+      Component,
+      componentProps
+    } = this.props;
+
+    return type === "COLLAPSED" ? (
       <div
         style={{
           display: "flex",
@@ -131,4 +146,8 @@ export const AHSwitch = withTheme(
         )}
       </div>
     )
-);
+  }
+ }
+  
+
+export const AHSwitch = withTheme(AHSwitchUnthemede);

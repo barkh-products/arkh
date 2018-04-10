@@ -52,6 +52,7 @@ type AHTitleProps = {
   style: any
 };
 
+/* @component */
 export const AHTitle = (props: AHTitleProps) =>
   <h1 style={{ ...typeStyles(props.type ? props.type : 'MODULE'), ...props.style}}>
     {props.children}

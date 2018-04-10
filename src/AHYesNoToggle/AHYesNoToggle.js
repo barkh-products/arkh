@@ -5,7 +5,14 @@ const imgStyle = {
   height: 50
 };
 
-export const AHYesButton = ({ onClick, disabled, isPositive, style}) =>
+
+type Props = {
+  onClick?: (e: Event) => void;
+  disabled?: boolean;
+  isPositive?: boolean;
+  style?: any;
+}
+export const AHYesButton = ({ onClick, disabled, isPositive, style}: Props) =>
   isPositive === true ? (
     <img
       alt="positive activated"
