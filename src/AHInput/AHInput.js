@@ -2,7 +2,13 @@
 import React from "react";
 import styles from "./AHInput.css";
 
-export const AHInput = (props: any) => {
+type Props = {
+  error?: boolean;
+  wrapperStyle?: React.CSSStyleDeclaration;
+  autoFocus?: boolean;
+};
+
+export const AHInput = (props: Props) => {
   const { error, wrapperStyle, ...ownProps } = props;
   return (
     <div
