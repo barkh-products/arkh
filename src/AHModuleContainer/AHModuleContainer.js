@@ -1,14 +1,23 @@
 // @flow
-import React, { Children } from 'react';
-import styles from './AHModuleContainer.css';
+import React, { Children } from "react";
+import styled from "styled-components";
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: ${props => props.direction};
+  justify-content: space-around;
+  padding: 10px;
+`;
 export const AHModuleContainer = ({
   children,
-  style
+  style,
+  direction = "row"
 }: {
-  children?: Children,
-  style: mixed
-}) =>
-  <div style={style} className={styles.moduleContainer}>
+  children?: React$Element<any>,
+  style: any,
+  direction: "row" | "column" 
+}) => (
+  <Container direction={direction}  style={style}>
     {children}
-  </div>;
+  </Container>
+);

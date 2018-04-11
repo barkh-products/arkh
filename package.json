@@ -4,10 +4,9 @@
     "description": "The fabric of businesses",
     "main": "./dist/src/index.js",
     "scripts": {
-        "start": "./node_modules/.bin/parcel src/docs/index.html",
         "build": "./node_modules/.bin/webpack --mode=production",
         "dev": "styleguidist server",
-        "build:docs": "./node_modules/.bin/parcel build src/docs/index.js -d dist/docs/"
+        "build:docs": "styleguidist build"
     },
     "author": "Barkh",
     "license": "MIT",

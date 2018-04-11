@@ -1,0 +1,5 @@
+{
+    "tslint.jsEnable": false,
+    "flow.enabled": true,
+    "javascript.validate.enable": false
+}

@@ -6,35 +6,17 @@ import { AHButton } from "../AHButton/AHButton";
 import Color from "color";
 import styled, { css } from "styled-components";
 
-/*
-AHModule an be used in two ways
 
-With render method or with children.
-
-With Render method:
-<AHModule loading={false} render={() => <p>Test</p>}/>
-
-The render method will only be called when loading is true.
-This is useful if the module is used with data fetching.
-
-With children:
-<AHModule>
-  <p>Test</p>
-</AHModule>
-The children will be created by the parent and thus exist even if loading is true.
-This can be used when no data fetching is needed.
-
-*/
 
 type Props = {
-  theme: AHThemeType,
   render?: () => Element<any>,
-  children: Children,
+  children?: Children,
   style?: Object,
   onClick?: (e: Event) => void,
   loading?: boolean,
   error?: boolean,
-  print?: boolean
+  print?: boolean,
+  refetch?: () => Promise<any>
 };
 
 const isLoading = (props: Props) => props.loading;
@@ -48,7 +30,7 @@ const errorStyle = {
 };
 
 const contentLoadingStyles = (props: Props) =>
-  isLoading(props) ? { opacity: 0 } : { opacity: 1 };
+  props.isLoading ? { opacity: 0 } : { opacity: 1 };
 
 const Wrapper = styled.div`
   background: ${props =>
@@ -86,11 +68,8 @@ const Wrapper = styled.div`
   }
 `;
 
-class ErrorBoundaryComp extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
+class ErrorBoundaryComp extends React.Component<any, { hasError: boolean }> {
+  state = { hasError: false };
 
   componentDidCatch(error, info) {
     // Display fallback UI
@@ -100,9 +79,7 @@ class ErrorBoundaryComp extends React.Component {
   }
 
   refresh = () => {
-    this.props.persistor.purge().then(() => {
-      window.location.reload(true);
-    });
+    window.location.reload(true);
   };
 
   render() {
@@ -112,7 +89,7 @@ class ErrorBoundaryComp extends React.Component {
         <Wrapper>
           <AHTitle>Hoppsan!</AHTitle>
           <AHTitle type="SUB">
-            Där gick något fel, hoppas du förlåter mig.
+            Där gick något fel!
           </AHTitle>
           <AHButton onClick={this.refresh}>Ladda om sidan</AHButton>
         </Wrapper>
@@ -123,11 +100,24 @@ class ErrorBoundaryComp extends React.Component {
 }
 const ErrorBoundary = withTheme(ErrorBoundaryComp);
 
-class AHModuleUnthemed extends React.Component {
+
+
+
+const LoadingImage = styled.img`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  align-self: center;
+`;
+export class AHModule extends React.Component<Props, {}> {
   state = {
     errorRefetch: false,
     hasTestedRefetch: false
   };
+
+  
 
   componentWillReceiveProps(nextProps) {
     /// if the error fixed itself
@@ -138,7 +128,6 @@ class AHModuleUnthemed extends React.Component {
   }
 
   onErrorPress = () => {
-   
     this.setState({ errorRefetch: true });
     this.props
       .refetch()
@@ -150,7 +139,7 @@ class AHModuleUnthemed extends React.Component {
       });
   };
 
-  testRefetch = () => this.props.testRefetch && !this.state.hasTestedRefetch
+  testRefetch = () => this.props.testRefetch && !this.state.hasTestedRefetch;
 
   render() {
     return (
@@ -164,18 +153,10 @@ class AHModuleUnthemed extends React.Component {
           onClick={this.props.onClick}
         >
           {isLoading(this.props) && (
-            <img
+            <LoadingImage
               alt="loading gif"
-              style={{
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                marginLeft: -20,
-                marginTop: -20,
-                alignSelf: "center"
-              }}
               width={40}
-              src={require("./loading.gif")}
+              src={require("../loading.gif")}
             />
           )}
 
@@ -188,7 +169,7 @@ class AHModuleUnthemed extends React.Component {
               ...this.props.innerStyle
             }}
           >
-            {(!!this.props.error || this.testRefetch()) ? (
+            {!!this.props.error || this.testRefetch() ? (
               <div style={errorStyle}>
                 <p style={{ margin: 0 }}>Ett fel inträffade.</p>
                 <p style={{ margin: 0, marginBottom: 20 }}>
@@ -214,5 +195,3 @@ class AHModuleUnthemed extends React.Component {
     );
   }
 }
-
-export const AHModule = withTheme(AHModuleUnthemed);
