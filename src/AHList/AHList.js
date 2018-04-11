@@ -1,9 +1,11 @@
 // @flow
 
 import React from "react";
-import styles from "./AHList.css";
 import { withTheme, AHThemeType } from "../AHTheme/AHTheme";
 import Color from "color";
+import styled from "styled-components";
+
+
 
 
 type Props = {
@@ -11,22 +13,29 @@ type Props = {
   style: CSSStyleDeclaration
 };
 
-const AHListUnthemed = (props: Props) => (
-  <ul
-    className={styles.list}
-    style={Object.assign(
-      {},
-      {
-        borderTop:
-          "1px solid " +
-          Color(props.theme.baseColor)
-            .darken(0.1)
-            .hexString()
-      },
-      props.style
-    )}
-  >
+const List = withTheme(styled.ul `
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 0;
+    border-top: ${props => "1px solid " +
+    Color(props.theme.baseColor)
+      .darken(0.1)
+      .hexString()};
+          
+    @media print{
+
+          display: block;
+          height: auto !important;
+          margin: 0;
+
+  }
+    `);
+
+export const AHList = (props: Props) => (
+  <List style={props.style}>
     {props.children}
-  </ul>
+  </List>
 );
-export const AHList = withTheme(AHListUnthemed);
+

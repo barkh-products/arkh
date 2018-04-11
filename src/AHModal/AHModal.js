@@ -5,7 +5,7 @@ import { AHModule } from "../AHModule/AHModule";
 
 type Props = {
   children?: Children,
-  onBackgroundClick: () => void
+  onBackgroundClick?: (Event) => void
 };
 
 export class AHModal extends PureComponent {
@@ -29,7 +29,7 @@ export class AHModal extends PureComponent {
   }
 
   render = () => (
-    <div onClick={this.props.onBackgroundClick} className={styles.modal}>
+    <div onClick={this.props.onBackgroundClick ? this.props.onBackgroundClick : undefined} className={styles.modal}>
       <div className={styles.modalContent}>
         <AHModule print onClick={this.click} {...this.props} />
       </div>

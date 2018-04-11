@@ -1,6 +1,11 @@
 import React from "react";
 
-export const AHBoldQuery = ({ query, input, style }) => {
+type Props = {
+  query: string;
+  input: string;
+  style?: any;
+}
+export const AHBoldQuery = ({ query, input, style }: Props) => {
   const startIndex = input.toLowerCase().indexOf(query.toLowerCase());
 
   const strBefore = startIndex >= 0 ? input.slice(0, startIndex) : input;
@@ -20,19 +25,3 @@ export const AHBoldQuery = ({ query, input, style }) => {
   );
 };
 
-export const separateFirstWord = input => {
-  const parts = (input ? input : "").split(" ");
-  return [
-    parts.length > 0 ? parts[0] : "",
-    parts.slice(1).reduce((prev, curr) => prev + " " + curr, "")
-  ];
-};
-export const AHBoldFirstWord = ({ input, style, breaking = true }) => {
-  const [first, other] = separateFirstWord(input);
-  return (
-    <label style={style}>
-      <b>{first}</b>
-      {breaking && <br />} {other}
-    </label>
-  );
-};

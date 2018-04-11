@@ -1,20 +1,20 @@
-### Normal Button
+#### Normal Button
 ```js
 <AHButton>A Regular Button</AHButton>
 <AHButton loading={true}>Push me</AHButton>
 ```
-### Negative Button
+#### Negative Button
 ```js
 <AHButton type="NEGATIVE">Push me</AHButton>
 
 ```
 
-### Positive Button
+#### Positive Button
 ```js
 <AHButton type="POSITIVE">Push me</AHButton>
 ```
 
-### Important Button
+#### Important Button
 ```js
 <AHButton type="IMPORTANT">Push me</AHButton>
 ```
