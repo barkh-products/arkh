@@ -32,6 +32,12 @@ const Arrow = styled.div`
   left: ${props => (props.width / 2) - 20 + (props.arrowShift ? props.arrowShift : 0)}px;
 `;
 export class AHPopup extends Component {
+  props: {
+    active: boolean;
+    width?: number;
+    shift?: number;
+    arrowShift?: number;
+  };
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
   }

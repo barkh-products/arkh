@@ -6,7 +6,8 @@
     "scripts": {
         "build": "./node_modules/.bin/webpack --mode=production",
         "dev": "styleguidist server",
-        "build:docs": "styleguidist build"
+        "build:docs": "styleguidist build",
+        "prepublish": "yarn build; yarn build:docs;"
     },
     "author": "Barkh",
     "license": "MIT",

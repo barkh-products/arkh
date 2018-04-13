@@ -6,24 +6,32 @@ import ReactTooltip from "react-tooltip";
 
 import Color from "color";
 
-const toggleContainerStyle = ({ on, theme }) => ({
-  backgroundColor: on
+const toggleContainerStyle = ({ active, theme }) => ({
+  backgroundColor: active
     ? theme.primaryColor
     : Color(theme.baseColor).darken(0.1).hexString()
 });
 
-const innerBoxStyle = ({ on, theme }) => ({
-  transform: on ? "translateX(100%)" : "translateX(0)"
+const innerBoxStyle = ({ active, theme }) => ({
+  transform: active ? "translateX(100%)" : "translateX(0)"
 });
 
-const innerInnerBoxStyle = ({ on, theme }) => ({
+const innerInnerBoxStyle = ({  theme }) => ({
   backgroundColor: theme.baseColor
 });
 
 class AHToggleUnthemed extends PureComponent {
-  onClick = () => {
+  displayName = "AHToggle";
+
+  props: {
+    disabled?: boolean;
+    onClick: (Event) => void;
+    active: boolean;
+
+  }
+  onClick = (E) => {
     if (!this.props.disabled) {
-      this.props.onClick();
+      this.props.onClick(E);
     }
   };
   render = () =>
@@ -54,5 +62,6 @@ class AHToggleUnthemed extends PureComponent {
       </div>
     </div>;
 }
+
 
 export const AHToggle = withTheme(AHToggleUnthemed);

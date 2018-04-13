@@ -1,12 +1,22 @@
-## Regular Switch
-```js
-<AHSwitch labels={["one", "two", "three", "four"]} activeIndex={2} />
+#### Regular Switch
 
+```js
+initialState = { activeIndex: 0 };
+<AHSwitch
+  labels={["one", "two", "three", "four"]}
+  activeIndex={state.activeIndex}
+  onActiveIndexChange={index => setState({ activeIndex: index })}
+/>;
 ```
 
+#### Collapsed Switch
 
-## Collapsed Switch
 ```js
-<AHSwitch labels={["one", "two", "three", "four"]} activeIndex={2} type="COLLAPSED" />
-
+initialState = { activeIndex: 1 };
+<AHSwitch
+  labels={["one", "two", "three", "four"]}
+  activeIndex={state.activeIndex}
+  onActiveIndexChange={index => setState({ activeIndex: index })}
+  type="COLLAPSED"
+/>;
 ```

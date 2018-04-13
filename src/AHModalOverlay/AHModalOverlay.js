@@ -1,7 +1,9 @@
 import React from "react";
 import * as styles from "./AHModalOverlay.css";
-
-export const AHModalOverlay = props =>
+type Props = {
+  onBackgroundClick?: (Event) => void
+}
+export const AHModalOverlay = (props: Props) =>
   <div
     className={styles.ps}
     onClick={function(e) {

@@ -9,12 +9,12 @@
 <AHTitle type="STANDARD">Bonjour</AHTitle>
 ```
 
-### BIGBOY Title
+#### BIGBOY Title
 ```js
 <AHTitle type="BIGBOY">Hej</AHTitle>
 ```
 
-### SUB Title
+#### SUB Title
 ```js
 <AHTitle type="SUB">Hej</AHTitle>
 ```

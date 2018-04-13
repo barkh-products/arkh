@@ -15,8 +15,6 @@ export * from "./AHTheme/AHTheme";
 export * from "./AHToggle/AHToggle";
 export * from "./AHSelect/AHSelect";
 export * from "./AHApp/AHApp";
-export * from "./AHWarehouseDepartmentSwitch/AHWarehouseDepartmentSwitch";
-export * from "./AHSubmitButton/AHSubmitButton";
 export * from "./AHSeparator/AHSeparator";
 export * from "./AHBoldQuery/AHBoldQuery";
 export * from "./AHYesNoToggle/AHYesNoToggle";

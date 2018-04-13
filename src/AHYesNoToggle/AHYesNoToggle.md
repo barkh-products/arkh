@@ -1,17 +1,10 @@
-## Yes No Toggle
-
 ### Positive
-```js
-<AHYesNoToggle isPositive={true}/>
 
-```
-### Negative
 ```js
-<AHYesNoToggle isPositive={false}/>
-```
-### Undefined 
-```js
-<AHYesNoToggle isPositive={undefined}/>
-```
+initialState = { isPositive: undefined };
 
-
+<AHYesNoToggle
+  isPositive={state.isPositive}
+  onClick={val => setState({ isPositive: val })}
+/>;
+```

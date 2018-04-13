@@ -4,7 +4,7 @@ import styles from "./AHButton.css";
 
 import { withTheme, AHThemeType } from "../AHTheme/AHTheme";
 import { AHShakeableClickArea } from "../AHShakeableClickArea/AHShakeableClickArea";
-
+import { SubmitButton } from "./SubmitButton";
 type AHButtonTypes = "NORMAL" | "NEGATIVE" | "POSITIVE";
 
 const typeStyles = (type: AHButtonTypes, theme: AHThemeType) =>
@@ -24,7 +24,8 @@ const typeStyles = (type: AHButtonTypes, theme: AHThemeType) =>
     POSITIVE: {
       background: theme.positiveColor,
       color: "#fff"
-    }
+    },
+    SUBMIT: {}
   }[type]);
 
 class AHButtonUnthemed extends PureComponent {
@@ -49,7 +50,7 @@ class AHButtonUnthemed extends PureComponent {
   renderLoading = () => <i className="fa fa-spinner fa-spin fa-1x fa-fw" />;
 
   render() {
-    return (
+    return this.props.type === "SUBMIT" ? <SubmitButton {...this.props} />: (
       <div
         onClick={
           this.props.disabled || this.props.loading
