@@ -30,12 +30,8 @@ const Shake = styled.div`
 type Props = {
   shouldShake?: boolean
 };
-export class AHShakeableClickArea extends React.Component {
-  props: Props;
+export class AHShakeableClickArea extends React.Component<Props> {
 
-  defaultProps = {
-    shouldShake: true
-  };
   state = {
     isShaking: false
   };

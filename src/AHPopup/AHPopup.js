@@ -29,14 +29,15 @@ const Arrow = styled.div`
   border-right: 10px solid transparent;
   border-bottom: 10px solid #fff;
   top: -5px;
-  left: ${props => (props.width / 2) - 20 + (props.arrowShift ? props.arrowShift : 0)}px;
+  left: ${props =>
+    props.width / 2 - 20 + (props.arrowShift ? props.arrowShift : 0)}px;
 `;
 export class AHPopup extends Component {
   props: {
-    active: boolean;
-    width?: number;
-    shift?: number;
-    arrowShift?: number;
+    active: boolean,
+    width?: number,
+    shift?: number,
+    arrowShift?: number
   };
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
@@ -51,7 +52,7 @@ export class AHPopup extends Component {
   };
 
   handleClickOutside = event => {
-    if (this.r && !this.r.contains(event.target)) {
+    if (this.r && !this.r.contains(event.target) && this.props.onClickOutside) {
       this.props.onClickOutside(event);
     }
   };
@@ -64,7 +65,10 @@ export class AHPopup extends Component {
         innerRef={this.setRef}
         onClick={this.props.onClick}
       >
-        <Arrow width={this.props.width ? this.props.width : 280} arrowShift={this.props.arrowShift} />
+        <Arrow
+          width={this.props.width ? this.props.width : 280}
+          arrowShift={this.props.arrowShift}
+        />
         {this.props.children}
       </Wrapper>
     ) : null;
