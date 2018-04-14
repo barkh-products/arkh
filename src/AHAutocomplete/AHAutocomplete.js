@@ -14,7 +14,7 @@ const wrapperOfTheWrapperStyle = {
   marginRight: "5%"
 };
 
-const AHAutocompleteUnthemed = props => {
+export const AHAutocomplete = withTheme(props => {
   const { style, loading, inputProps, autoRef, ...childProps } = props;
   const { onChange, ...restInputProps } = inputProps;
 
@@ -45,6 +45,4 @@ const AHAutocompleteUnthemed = props => {
       />
     </div>
   );
-};
-
-export const AHAutocomplete = withTheme(AHAutocompleteUnthemed);
+});

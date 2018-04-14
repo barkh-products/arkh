@@ -2,7 +2,6 @@
 
 ```js
 <AHButton>A Regular Button</AHButton>
-<AHButton loading={true}>Push me</AHButton>
 ```
 
 #### Negative Button
