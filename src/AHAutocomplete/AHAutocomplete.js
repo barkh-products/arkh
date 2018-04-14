@@ -21,12 +21,12 @@ type Props = {
   onChange: (newValue: string) => void,
   value: string,
   getItemValue: Item => string,
+  filter: Item => boolean,
 
   clearButton?: boolean,
   clearButtonOnClick?: Event => void,
   style?: {},
   loading?: boolean,
-  inputProps?: {},
   autoRef?: any
 };
 
@@ -36,7 +36,7 @@ export class AHAutocomplete extends React.Component<Props, any> {
   };
 
   onSuggestionsFetchRequested = () => {
-    this.setState({ items: this.props.items });
+    this.setState({ items: this.props.items.filter(this.props.filter) });
   };
 
   onSuggestionsClearRequested = () => {
@@ -73,6 +73,9 @@ export class AHAutocomplete extends React.Component<Props, any> {
         <Autosuggest
           ref={autoRef}
           {...childProps}
+          theme={theme}
+          getSuggestionValue={this.props.getItemValue}
+          suggestions={this.state.items}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
           onSuggestionsClearRequested={this.onSuggestionsClearRequested}
           inputProps={{

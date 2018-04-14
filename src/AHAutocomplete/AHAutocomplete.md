@@ -11,25 +11,19 @@ suggestions = [
 ];
 
 initialState = {
-  value: "",
-  suggestions: []
+  value: ""
 };
 
 <AHAutocomplete
-  onSuggestionsFetchRequested={() => setState({ suggestions: suggestions })}
-  onSuggestionsClearRequested={() => setState({ suggestions: [] })}
-  inputProps={{
-    onChange: (_, { newValue }) => setState({ value: newValue }),
-    value: state.value
-  }}
-  getSuggestionValue={s => s.name}
-  renderSuggestion={function(s) {
-    return (
-      <div>
-        {s.name} <div>{s.year}</div>
-      </div>
-    );
-  }}
-  suggestions={state.suggestions}
+  items={suggestions}
+  onChange={newValue => setState({ value: newValue })}
+  value={state.value}
+  getItemValue={item => item.name}
+  filter={item => item.name.toLowerCase().includes(state.value.toLowerCase())}
+  renderSuggestion={item => (
+    <div>
+      {item.name} <div>{item.year}</div>
+    </div>
+  )}
 />;
 ```
