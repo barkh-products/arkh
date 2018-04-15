@@ -1,17 +1,17 @@
 // @flow
-import React, { Children, PureComponent } from "react";
+import * as React from "react";
 import styles from "./AHModal.css";
 import { AHModule } from "../AHModule/AHModule";
 
 type Props = {
-  children?: Children,
+  children?: React.Node,
   onBackgroundClick?: (Event) => void
 };
 
-export class AHModal extends PureComponent {
-  props: Props;
+export class AHModal extends React.PureComponent<Props> {
+  
 
-  click = e => e.stopPropagation();
+  click = (e: Event) => e.stopPropagation();
 
   componentDidMount() {
     const root = document.getElementById("root");

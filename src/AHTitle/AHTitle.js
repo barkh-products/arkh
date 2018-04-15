@@ -1,5 +1,5 @@
 // @flow
-import React, { Children } from 'react';
+import * as React from 'react';
 
 const styles = {
   MODULE: {
@@ -47,9 +47,9 @@ const styles = {
 const typeStyles = (type: $Keys<typeof styles>) => styles[type];
 
 type AHTitleProps = {
-  children?: Children,
+  children?: React.Node,
   type: $Keys<typeof styles>,
-  style: any
+  style?: any
 };
 
 /* @component */

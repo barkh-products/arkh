@@ -1,5 +1,5 @@
 // @flow
-import React, { Children } from "react";
+import * as React from "react";
 import { withTheme, AHThemeType } from "../AHTheme/AHTheme";
 import { AHTitle } from "../AHTitle/AHTitle";
 import { AHButton } from "../AHButton/AHButton";
@@ -9,17 +9,19 @@ import styled, { css } from "styled-components";
 
 
 type Props = {
-  render?: () => Element<any>,
-  children?: Children,
+  render?: () => React.Node,
+  children?: React.Node,
   style?: Object,
   onClick?: (e: Event) => void,
   loading?: boolean,
   error?: boolean,
   print?: boolean,
-  refetch?: () => Promise<any>
+  refetch?: () => Promise<any>,
+  testRefetch?: boolean,
+  innerStyle?: any
+
 };
 
-const isLoading = (props: Props) => props.loading;
 
 const errorStyle = {
   display: "flex",
@@ -30,7 +32,7 @@ const errorStyle = {
 };
 
 const contentLoadingStyles = (props: Props) =>
-  props.isLoading ? { opacity: 0 } : { opacity: 1 };
+  props.loading ? { opacity: 0 } : { opacity: 1 };
 
 const Wrapper = styled.div`
   background: ${props =>
@@ -111,7 +113,7 @@ const LoadingImage = styled.img`
   margin-top: -20px;
   align-self: center;
 `;
-export class AHModule extends React.Component<Props, {}> {
+export class AHModule extends React.Component<Props, any> {
   state = {
     errorRefetch: false,
     hasTestedRefetch: false
@@ -119,7 +121,7 @@ export class AHModule extends React.Component<Props, {}> {
 
   
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: Props) {
     /// if the error fixed itself
     /// remove errorRefresh;
     if (!nextProps.error && this.state.errorRefetch) {
@@ -129,8 +131,7 @@ export class AHModule extends React.Component<Props, {}> {
 
   onErrorPress = () => {
     this.setState({ errorRefetch: true });
-    this.props
-      .refetch()
+    this.props.refetch()
       .then(() => {
         this.setState({ errorRefetch: false, hasTestedRefetch: true });
       })
@@ -152,7 +153,7 @@ export class AHModule extends React.Component<Props, {}> {
           loading={this.props.loading}
           onClick={this.props.onClick}
         >
-          {isLoading(this.props) && (
+          {this.props.loading && (
             <LoadingImage
               alt="loading gif"
               width={40}
@@ -186,7 +187,7 @@ export class AHModule extends React.Component<Props, {}> {
                 ) : null}
               </div>
             ) : (
-              !isLoading(this.props) &&
+              !(this.props.loading) &&
               (this.props.render ? this.props.render() : this.props.children)
             )}
           </div>
