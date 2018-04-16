@@ -1,3 +1,4 @@
+import './icons';
 export * from "./AHAutocomplete/AHAutocomplete";
 export * from "./AHButton/AHButton";
 export * from "./AHDetailButton/AHDetailButton";
@@ -14,7 +15,6 @@ export * from "./AHInput/AHInput";
 export * from "./AHTheme/AHTheme";
 export * from "./AHToggle/AHToggle";
 export * from "./AHSelect/AHSelect";
-export * from "./AHApp/AHApp";
 export * from "./AHSeparator/AHSeparator";
 export * from "./AHBoldQuery/AHBoldQuery";
 export * from "./AHYesNoToggle/AHYesNoToggle";

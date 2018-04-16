@@ -1,7 +1,7 @@
 // @flow
 import React, { Children, PureComponent } from "react";
 import styles from "./AHButton.css";
-
+import FontAwesome from "react-native-vector-icons/dist/FontAwesome";
 import { withTheme, AHThemeType } from "../AHTheme/AHTheme";
 import { AHShakeableClickArea } from "../AHShakeableClickArea/AHShakeableClickArea";
 import { SubmitButton } from "./SubmitButton";
@@ -47,7 +47,7 @@ class AHButtonUnthemed extends PureComponent {
 
   displayName = "AHButton";
 
-  renderLoading = () => <i className="fa fa-spinner fa-spin fa-1x fa-fw" />;
+  renderLoading = () =>  <FontAwesome name="spinner" /> //<i className="fa fa-spinner fa-spin fa-1x fa-fw" />;
 
   render() {
     return this.props.type === "SUBMIT" ? <SubmitButton {...this.props} />: (

@@ -28,6 +28,13 @@
 <AHButton type="SUBMIT" />
 ```
 
+
+#### Submit Button
+
+```js
+<AHButton loading/>
+```
+
 ### Disabled Buttons
 
 ```js

@@ -2,47 +2,42 @@ import React from "react";
 import { withTheme, AHThemeType } from "../AHTheme/AHTheme";
 import { toClass } from "recompose";
 import styled from "styled-components";
-
+import FontAwesome from "react-native-vector-icons/dist/FontAwesome";
 
 const Underscore = styled.div`
-opacity: ${props => props.active ? 1 : 0};
-transform: ${props => props.active ? 'translate(0,0)' : 'translate(0,8px)'};
-margin-top:6px; 
-background-color: ${props => props.background};
-width: 100%; 
-height: 1px; 
-transition:0.2s ease-out;
-
+  opacity: ${props => (props.active ? 1 : 0)};
+  transform: ${props => (props.active ? "translate(0,0)" : "translate(0,8px)")};
+  margin-top: 6px;
+  background-color: ${props => props.background};
+  width: 100%;
+  height: 1px;
+  transition: 0.2s ease-out;
 `;
 
-
 const Container = styled.div`
-&:hover ${Underscore} {
-  transform: translate(0,0);
-  opacity:1;
-}
-`
+  &:hover ${Underscore} {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+`;
 
 export type AHSwitchType = "NORMAL" | "COLLAPSED";
 
-
 type Props = {
-
-    type: AHSwitchType;
-    labels: string[];
-    activeIndex: number;
-    onActiveIndexChange: (number) => void;
-    theme:AHThemeType;
-    Component: React$ReactElement<any>;
-    componentProps: any;
-}
- class AHSwitchUnthemede extends React.Component {
-
+  type: AHSwitchType,
+  labels: string[],
+  activeIndex: number,
+  onActiveIndexChange: number => void,
+  theme: AHThemeType,
+  Component: React$ReactElement<any>,
+  componentProps: any
+};
+class AHSwitchUnthemede extends React.Component {
   displayName = "AHSwitch";
 
   props: Props;
 
-  render(){
+  render() {
     const {
       type,
       style,
@@ -74,7 +69,7 @@ type Props = {
             }
           }}
         >
-          <span className="fi-arrow-left" />
+          <FontAwesome name="arrow-left" />
         </div>
         {Component ? (
           <Component {...componentProps}>{labels[activeIndex]}</Component>
@@ -93,7 +88,7 @@ type Props = {
             }
           }}
         >
-          <span className="fi-arrow-right" />
+          <FontAwesome name="arrow-right" />
         </div>
       </div>
     ) : (
@@ -139,15 +134,17 @@ type Props = {
                     label
                   )}
 
-                  <Underscore background={theme.primaryColor} active={index === activeIndex}/>
+                  <Underscore
+                    background={theme.primaryColor}
+                    active={index === activeIndex}
+                  />
                 </Container>
               </div>
             ) : null
         )}
       </div>
-    )
+    );
   }
- }
-  
+}
 
 export const AHSwitch = withTheme(AHSwitchUnthemede);
